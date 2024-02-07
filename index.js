@@ -35,7 +35,7 @@ app.get('/get', (req, res) => {
         // 待機中のマッチがタイムアウトした場合
         waitingMatch = null; // タイムアウトしたので待機中のマッチを破棄
         matchStartTime = null;
-        res.send('Match timeout');
+        res.status(408).send('Match timeout'); // タイムアウトステータスを返す
     } else {
         // 他のマッチと入力が一致しない場合、マッチ失敗
         res.send('Match failed');
