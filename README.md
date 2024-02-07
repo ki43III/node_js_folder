@@ -1,1 +1,1 @@
-### unityとnode.jsの通信を試みたもの
+### unityとnode.jsで通信をしたいとう試みです
