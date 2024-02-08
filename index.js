@@ -1,16 +1,16 @@
-const dgram = require('dgram');
-const server = dgram.createSocket('udp4');
+const express = require('express');
+const bodyParser = require('body-parser');
 
-const PORT = 12345;
+const app = express();
+const port = 3000;
 
-server.on('message', (msg, rinfo) => {
-    console.log(`Received message from ${rinfo.address}:${rinfo.port}: ${msg}`);
+app.use(bodyParser.json());
+
+app.post('/', (req, res) => {
+    console.log('JSONデータを受信しました:', req.body);
+    res.send('JSONデータを受信しました');
 });
 
-server.on('listening', () => {
-    const address = server.address();
-    console.log(`UDP server listening on ${address.address}:${address.port}`);
+app.listen(port, () => {
+    console.log(`サーバが http://localhost:${port} で起動しました`);
 });
-
-server.bind(PORT);
-
