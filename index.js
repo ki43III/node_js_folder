@@ -5,8 +5,8 @@ const app = express();
 const port = 3000;
 
 app.use(bodyParser.json());
-let resistdata1s = undefined;
-let requestdat2s = undefined;
+let resistdata1s = { "key": "1", "name": "1", "id": 123, "x": 0, "y": 0, "z": 0 };
+let requestdat2s = { "key": "2", "name": "2", "id": 123, "x": 0, "y": 0, "z": 0 };
 
 app.post('/', (req, res) => {
     //jsonデータの中身を表示
@@ -33,6 +33,8 @@ app.post('/', (req, res) => {
     /*console.log(req.body);
     res.json(req.body);
     */
+    //console.log(resistdata1s);
+    console.log(resistdata1s);
 });
 
 app.listen(port, () => {
